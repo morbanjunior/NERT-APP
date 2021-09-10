@@ -39,10 +39,10 @@ const Header = ({ setSearch }) => {
 
                             </Form>
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="/mynotes">
+                        {userInfo ? <Nav>
+                            <Nav.Link>
                                 <Link to='/mynotes'>My Notes</Link></Nav.Link>
-                            <NavDropdown title={!userInfo && "User" || userInfo.name} id="navbarScrollingDropdown">
+                            <NavDropdown title={userInfo?.name} id="navbarScrollingDropdown">
                                 <NavDropdown.Item href="#action3">My Profile</NavDropdown.Item>
 
                                 <NavDropdown.Divider />
@@ -51,7 +51,10 @@ const Header = ({ setSearch }) => {
                                 </NavDropdown.Item>
                             </NavDropdown>
 
-                        </Nav>
+                        </Nav>:<Nav>
+                            {" "}
+                            <Nav.Link>
+                                <Link to='/login'>Login</Link></Nav.Link></Nav>}
 
                     </Navbar.Collapse>
                 </Container>
