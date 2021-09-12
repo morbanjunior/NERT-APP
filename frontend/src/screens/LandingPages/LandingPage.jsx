@@ -5,13 +5,13 @@ import './LandingPage.css';
 
 const LandingPage = () => {
 
-       /*const history = useHistory()
+       const history = useHistory()
     useEffect(() => {
         const userInfo = localStorage.getItem("userInfo");
         if (userInfo){
             history.push("/mynotes");
         }
-     }, [history])*/
+     }, [history])
      
 
     return (

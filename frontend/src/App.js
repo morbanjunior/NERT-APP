@@ -9,6 +9,7 @@ import LoginScreen from './screens/LoginScreen/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 import SingleNote from './screens/SingleNote/SingleNote';
 import {useState} from "react"
+import ProfileScreen from './screens/profileScreen/ProfileScreen'
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Route path='/createnote' component={CreateNote} exact />      
       <Route path='/note/:id' component={SingleNote} exact />
       <Route path='/mynotes' component={() =><MyNotes search={search}/>} />
+      <Route path='/profile' component={ProfileScreen} exact />
       </main>
       <Footer />
 

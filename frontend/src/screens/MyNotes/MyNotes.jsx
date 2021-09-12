@@ -12,6 +12,7 @@ import ErrorMessage from '../../component/ErrorMessage'
 
 
 const MyNotes = ({ search }) => {
+    
 
     const dispatch = useDispatch()
 
@@ -46,13 +47,17 @@ const MyNotes = ({ search }) => {
 
 ///Funtion For get data
     useEffect(() => {
-        //get the note
+        const userInfo = localStorage.getItem("userInfo");
+        if (userInfo){
+             //get the note
         dispatch(listNotes())
-
-        //Push to home if the user is not login
-        if(!userInfo){
+        }else{
             history.push('/')
         }
+       
+
+        //Push to home if the user is not login
+        
 
     }, [dispatch, history, successCreate, userInfo, successUpdate, successDelete])
     
@@ -61,7 +66,7 @@ const MyNotes = ({ search }) => {
 
     return (
         <div>
-           <MainScreen title={` Welcom Back ${userInfo.name}..`}>
+           <MainScreen title={` Welcom Back ${userInfo?.name}..`}>
                <Link to="/createnote">
                    <Button style={{ marginLeft:10, marginBottom: 6}} size="lg">
                        Create New Notes
